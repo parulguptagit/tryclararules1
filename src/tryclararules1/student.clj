@@ -30,21 +30,21 @@
 (defn readfromfile [fileName]
   (def string1 (slurp fileName))
   (def lines (map vector (str/split-lines string1)))
-   (println ( into [] lines))
-  (doseq [y lines] (prn y))
-  ;;  (for x lines
+   (into [] lines)
+    ;;  (for x lines
   ;;      :let [y (str/split x)]
   ;;      println y  )
   )
 
 (defn run-examples
   "Function to run the above example."
-  []
+  [fileName]
+
+
   (println "list of promotions :")
   ;; prints "10 % :vip discount"
-
-  (-> (mk-session 'tryclararules1.student :cache false) ; Load the rules.
-      (insert (->Student "vishal" 99)
+    (-> (mk-session 'tryclararules1.student :cache false) ; Load the rules.
+      (insert (->Student (readfromfile fileName))
 
               (->Student "varshita" 100)
               (->Student "parul" 3)

@@ -12,5 +12,5 @@
   (println "Arguments passed in are:")
   (run! println (map-indexed vector args))
   ;; (stu/readfromfile (first args))
-  (stu/run-examples)
+  (stu/run-examples (first args))
   )
